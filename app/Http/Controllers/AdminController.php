@@ -99,7 +99,6 @@ class AdminController extends Controller
 	public function addFilm(Request $request)
 	{
 
-		dd($request->room);
 		$films = new Film();
 		$films->name = $request->name;
 		$films->global_name = $request->global_name;
