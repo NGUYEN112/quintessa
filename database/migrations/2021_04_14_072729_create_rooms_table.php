@@ -16,7 +16,6 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('room_name')->nullable(false);
-            $table->integer('seat_count');
             $table->unsignedBigInteger('cinema_id');
             $table->foreign('cinema_id')->references('id')->on('cinemas');
             $table->timestamps();
