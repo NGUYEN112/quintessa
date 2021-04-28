@@ -21,8 +21,8 @@ class CreateScreeningsTable extends Migration
             $table->unsignedBigInteger('room_id');
             $table->foreign('film_id')->references('id')->on('films');
             $table->foreign('room_id')->references('id')->on('rooms');
-
-
+            $table->unsignedBigInteger('cinema_id');
+            $table->foreign('cinema_id')->references('id')->on('cinemas');
             $table->timestamps();
         });
     }

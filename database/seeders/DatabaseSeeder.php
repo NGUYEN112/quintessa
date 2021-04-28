@@ -27,7 +27,8 @@ class DatabaseSeeder extends Seeder
         'email' => 'nguyen@email.com',
         'password' => bcrypt('123123'),
         'level' => 0,
-        'avatar' => 'images/nguyen-avatar.jpg'
+        'avatar' => 'images/nguyen-avatar.jpg',
+        'point' => 0,
     ]);
     }
 }

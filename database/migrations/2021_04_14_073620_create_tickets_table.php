@@ -17,6 +17,7 @@ class CreateTicketsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('screening_id');
             $table->unsignedBigInteger('seat_id');
+            $table->integer('total_price');
             $table->foreign('screening_id')->references('id')->on('screenings');
             $table->foreign('seat_id')->references('id')->on('seats');
             $table->timestamps();
