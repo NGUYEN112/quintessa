@@ -18,7 +18,7 @@ class SeatsTableSeeder extends Seeder
             DB::table('seats')->insert([
                 'row' => 'A',
                 'number' => $i+1,
-                'room_id' => 1,
+                'room_id' => 2,
             ]);
         }
 
@@ -26,7 +26,7 @@ class SeatsTableSeeder extends Seeder
             DB::table('seats')->insert([
                 'row' => 'B',
                 'number' => $j+1,
-                'room_id' => 1,
+                'room_id' => 2,
             ]);
         }
 
@@ -34,7 +34,7 @@ class SeatsTableSeeder extends Seeder
             DB::table('seats')->insert([
                 'row' => 'C',
                 'number' => $k+1,
-                'room_id' => 1,
+                'room_id' => 2,
             ]);
         }
 
@@ -42,7 +42,7 @@ class SeatsTableSeeder extends Seeder
             DB::table('seats')->insert([
                 'row' => 'D',
                 'number' => $l+1,
-                'room_id' => 1,
+                'room_id' => 2,
             ]);
         }
     }
