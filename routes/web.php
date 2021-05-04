@@ -18,9 +18,6 @@ use App\Models\Ticket;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::group(['prefix' => 'cinema'], function() {
     Route::get('/',[CinemaController::class,'home'])->name('cinema.home');

@@ -17,7 +17,7 @@
 									<tr>
 										<th>No.</th>
 										<th>Tên rạp</th>
-										{{-- <th>Thông tin</th> --}}
+										<th>Thông tin</th>
 										<th>Chức năng</th>
 									</tr>
 								</thead>
@@ -26,7 +26,7 @@
 									<tr>
 										<td>{{$key+1}}</td>
 										<td>{{$cinema->cinema_name}}</td>
-										{{-- <td>{{$cinema->infomation}}</td> --}}
+										<td>{{$cinema->infomation}}</td>
 										<td><a href=""><button style="background-color: #ffffff00;border: none" title="Sửa"><i class="fas fa-edit text-success"></i></button></a><br>
 											<form action="{{route('admin.deletecinema' ,$cinema->id)}}" method="get" onsubmit="return confirm('Chắc chắn muốn xóa ?')">
 												@csrf
