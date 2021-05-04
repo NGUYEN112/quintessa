@@ -22,13 +22,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('users')->insert([
-        'name' => 'Hoài Nguyên',
-        'email' => 'nguyen@email.com',
-        'password' => bcrypt('123123'),
-        'level' => 0,
-        'avatar' => 'images/nguyen-avatar.jpg',
-        'point' => 0,
+      for($i = 0; $i <10; $i++)
+      DB::table('seats')->insert([
+        'row' => 'A',
+        'number' => $i+1,
+        'room_id' => 1,
     ]);
     }
 }

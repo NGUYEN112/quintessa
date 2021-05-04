@@ -108,6 +108,7 @@
             data: data,
             success: function() {
                 $("#add-cinema-modal").modal("hide");
+				
             },
             error: function() {
                 alert("Edit Failed")
