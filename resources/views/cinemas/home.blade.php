@@ -8,6 +8,7 @@
         <h2>
           Phim Đang Chiếu
         </h2>
+        <img src="{{asset('/storage/images/EndGame.jpg')}}" alt="">
       </div>
       <div class="officeCont">
         <ol class="officeRk">
