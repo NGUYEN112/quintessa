@@ -11,7 +11,7 @@
           </div>
           @foreach ($films as $film)
           <div class="card-body">
-            <form action="}" method="POST" class="form-horizontal">
+            <form action="" method="POST" class="form-horizontal">
               @csrf
               <div class="form-group row">
                 <label class="col-md-3 form-control-label">Tên Phim</label>
@@ -34,7 +34,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 form-control-label">Nhà Sản Xuất</label>
                 <div class="col-md-9">
-                  <input id="inputHorizontalWarning" name="pruducer" type="text" placeholder="Nhà sản xuất" value="{{$film->producer}}" class="form-control form-control-warning ">
+                  <input id="inputHorizontalWarning" name="producer" type="text" placeholder="Nhà sản xuất" value="{{$film->producer}}" class="form-control form-control-warning ">
                 </div>
               </div>
               <div class="form-group row">

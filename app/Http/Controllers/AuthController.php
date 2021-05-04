@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function loginPage()
     {

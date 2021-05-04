@@ -65,7 +65,7 @@ Route::group(['prefix' =>'admin','middleware' => 'admin'], function() {
     Route::get('/addfilm',[AdminController::class,'addFilmPage'])->name('admin.addfilm.page');
     Route::post('/addfilm',[AdminController::class,'addFilm'])->name('admin.addfilm');
     Route::get('/editfilm/{id}',[AdminController::class,'editFilmPage'])->name('admin.editfilm.page');
-    Route::post('/editfilm/{/id}',[AdminController::class,'validationFilm'])->name('admin.editfilm');
+    Route::post('/editfilm/{id}',[AdminController::class,'validationFilm'])->name('admin.editfilm');
     Route::get('/deletefilm/{id}',[AdminController::class,'deleteFilm'])->name('admin.deletefilm');
 
     //route thao tac cinema//
