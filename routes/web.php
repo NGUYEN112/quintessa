@@ -18,12 +18,10 @@ use App\Models\Ticket;
 |
 */
 
-Route::get('/cinema', function () {
-    return view('cinemas.home');
-});
+Route::get('/',[CinemaController::class,'home'])->name('cinema.home');
 
 Route::group(['prefix' => 'cinema'], function() {
-    Route::get('/',[CinemaController::class,'home'])->name('cinema.home');
+    // Route::get('/',[CinemaController::class,'home'])->name('cinema.home');
     Route::get('/films/{id}',[CinemaController::class,'filmDetail'])->name('cinema.filmDetail')->where(['film_id'=>'[0-9]+']);
     Route::get('/orderticket/{id}',[CinemaController::class,'orderTicketDetail'])->name('cinema.orderticket');
     Route::get('/published',[CinemaController::class,'publishedFilm'])->name('cinema.published');
