@@ -10,6 +10,8 @@ use App\Models\Seat;
 use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 class AdminController extends Controller
 {
     public function homeAdmin()
@@ -75,20 +77,11 @@ class AdminController extends Controller
 	public function manageTicket()
 	{
 		$tickets = Ticket::select('user_id')
-		->where('user_id','<>','NULL')
 		->groupBy('user_id')
-		->distinct()
-		->paginate(10);
-		for ($i=0; $i < count($tickets) ; $i++) { 
-			$p = Ticket::select('screening_id')->where('user_id','<>','NULL')->groupBy('screening_id')->distinct()->get();
-			for ($j=0; $j < count($p); $j++) { 
-				$g = Ticket::select('seat_id')
-				->where([['user_id',$tickets[$i]->user_id],['screening_id',$p[$j]->screening_id]])
-				->get();
-				$p[$j]['seat_id']=$g;
-			}
-			$tickets[$i]['screening_id']=$p;
-		}
+		->get();
+        for ($i = 0; $i < count($tickets); $i++) {
+            $ticket = Ticket::where('screening_id', $tickets[$i]->screening_id)->distinct()->get();
+            $tickets[$i]['seat_id'] = $ticket;        }
 		return view('admin.manage.ticket',compact('tickets'));
 	}
 

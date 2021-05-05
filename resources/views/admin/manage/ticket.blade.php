@@ -25,37 +25,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									@php
-									$stt=0;
-									if (isset($_GET['page'])) {
-										$a=$_GET['page'];
-									}
-									else{
-										$a=1;
-									}
-									$stt=($a-1)*10;
-									@endphp
-									@foreach ($tickets as $ticket)  
-									@php
-									$stt++;
-									@endphp                   		
-									<tr>
-										<td>{{$stt}}</td>
-										<td>{{$ticket->user->name}}</td>
-										<td>@foreach ($ticket['screening_id'] as $l)
-											{{$l->screening->film->name}}
-										</td>
-										<td>{{date('d-m-y',strtotime($l->screening->date))}}&nbsp;|&nbsp;{{date('G:i',strtotime($l->screening->start_time))}}</td>
-										<td>
-											@foreach ($l['seat_id'] as $seats)
-											{{$seats->seat->row}}{{$seats->seat->number}}-
-											@endforeach
-										</td>
-
-										@endforeach
-
-									</tr>
-									@endforeach
+									
 								</tbody>
 							</table>
 						</div>

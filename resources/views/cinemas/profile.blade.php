@@ -32,19 +32,14 @@
                         <dl class="myCimema_cont">
                             <dt class="Lang-LBL3016">Đặt vé</dt>
                             <dd>{{$ticket->screening->film->name}}</dd>
-                            <dt class="Lang-LBL3016">Suất chiếu</dt>
-                            <dd>{{$ticket->screening->date}} / {{$ticket->screening->start_time}}</dd>
-                            <dt class="Lang-LBL3016">Số ghế</dt>
-                            <dd>
-                            @foreach($ticket['seat_id'] as $seat_id)
-                            {{$seat_id->seat->row}}{{$seat_id->seat->number}};
-                            @endforeach
+                            <dt class="Lang-LBL3016">Ngày chiếu</dt>
+                            <dd>{{$ticket->screening->start_time}} / {{date('d-m-Y', strtotime($ticket->screening->film->release_date))}}</dd>
                             @php
                             $count = count($ticket['seat_id']);
                             @endphp
                             </dd>
-                            <!-- <dt class="Lang-LBL0045">Tổng số tiền Thanh toán</dt>
-                            <dd>{{$count * $ticket->total_price}}₫</dd> -->
+                            <dt class="Lang-LBL0045">Tổng số tiền </dt>
+                            <dd>{{$count * $ticket->total_price}}₫</dd>
                     </div>
                 </li>
                 @endforeach
@@ -77,7 +72,7 @@
 			}
 
 			$.ajax({
-				url: `/cinemas/changeavatar`,
+				url: `/cinema/changeavatar`,
 				type: 'POST',
 				data: data,
 				success: function() {

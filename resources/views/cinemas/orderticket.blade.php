@@ -213,7 +213,7 @@ $idscreening=$screening->id
                         userid: user_id,
                         allseats: allseat,
                         price: ticket_price,
-                        totalprice: tongtv,
+                        totalprice: total_price,
                     },
                     success: function(response) {
                         alert("đặt vé thành công");
@@ -228,7 +228,7 @@ $idscreening=$screening->id
     var ticket_price = document.getElementById('ticket_price').innerHTML;
     var ticket_count = document.getElementsByClassName('ticket_count');
     var total_price = document.getElementsByClassName('total_price');
-    var prices = [65000, 80000, 150000];
+    // var prices = [65000, 80000, 150000];
     var units = document.getElementsByClassName('units-class');
     var subs = document.getElementsByClassName('subtotal-class');
     var grand = document.getElementById('total');

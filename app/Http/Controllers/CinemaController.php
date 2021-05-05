@@ -85,7 +85,7 @@ class CinemaController extends Controller
             ->get();
 
         for ($i = 0; $i < count($seats); $i++) {
-            $seat = Seat::where([['room_id', 1], ['row', $seats[$i]->row]])->get();
+            $seat = Seat::where([['room_id', $room_id], ['row', $seats[$i]->row]])->get();
 
             $seats[$i]['number'] = $seat;
         }
@@ -116,11 +116,13 @@ class CinemaController extends Controller
         $tickets->seat_id = $seats[$i];
         $tickets->total_price = $request->price;
         $tickets->save();
+        // $user = User::findOrFail(auth()->user()->id);
+        // $user->point += ($request->price/100);
+        // $user->save();
         }
-        $user = User::findOrFail(auth()->user()->id);
-        $user->point = $user->point + ($request->totalprice/100);
-        $user->save();
-        return redirect()->route('cinema.published');
+        
+        
+        return;
     }
 
     public function showProfilePage() {
@@ -133,7 +135,7 @@ class CinemaController extends Controller
         for ($i = 0; $i < count($tickets); $i++) {
             $ticket = Ticket::where([['user_id', auth()->user()->id], ['screening_id', $tickets[$i]->screening_id]])->distinct()->get();
             $tickets[$i]['seat_id'] = $ticket;
-            // $tickets[$i]['total_price'] = $ticket[$i]['total_price'];
+            $tickets[$i]['total_price'] = $ticket[$i]['total_price'];
             // $count = count($ticket);
         }
         
@@ -145,7 +147,7 @@ class CinemaController extends Controller
 
     public function changeAvatar(Request $request) {
         $user = User::where('user_id',auth()->user()->id)->update([
-            'avatar'=>$request->avatar
+            'avatar'=>$request->avatar,
         ]);
         return view('cinemas.avatar-form');
     }
